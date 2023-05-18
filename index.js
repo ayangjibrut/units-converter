@@ -11,14 +11,17 @@ let volumeEl = document.getElementById("volume-el") // liters
 let massEl = document.getElementById("mass-el") // kilos
 
 const meterToFeet =  3.281
+const feetToMeter = 0.304
 const literToGallon =  0.264
+const gallonToLiter = 3.785
 const kiloToPound =  2.204
+const poundToKilo = 0.454
 
 convertBtn.addEventListener("click", function() {
     let baseValue = inputEl.value
     
-    lengthEl.textContent = `${baseValue} meter = ${baseValue * meterToFeet.toFixed(3)} feet | ${baseValue} feet = ${baseValue / meterToFeet.toFixed(3)} meter` 
-    volumeEl.textContent = `${baseValue} liter = ${baseValue * literToGallon.toFixed(3)} gallon | ${baseValue} gallon = ${baseValue / literToGallon.toFixed(3)} liter`
-    massEl.textContent = `${baseValue} kilo = ${baseValue * kiloToPound.toFixed(3)} pound | ${baseValue} pound = ${baseValue / kiloToPound.toFixed(3)} kilo`
+    lengthEl.textContent = `${baseValue} meter = ${Math.round(baseValue * meterToFeet)} feet | ${baseValue} feet = ${Math.round(baseValue * feetToMeter)} meter` 
+    volumeEl.textContent = `${baseValue} liter = ${Math.round(baseValue * literToGallon)} gallon | ${baseValue} gallon = ${Math.round(baseValue * gallonToLiter)} liter`
+    massEl.textContent = `${baseValue} kilo = ${Math.round(baseValue * kiloToPound)} pound | ${baseValue} pound = ${Math.round(baseValue * poundToKilo)}  kilo`
 })
 
